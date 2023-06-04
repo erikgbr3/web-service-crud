@@ -30,7 +30,7 @@ const getState = async (req, res) => {
       if (error.errors) {
           errors = error.errors.map((item) => ({
               error: item.message,
-              field: item.parh,
+              field: item.path,
           }));
       }
       return res.status(400).json(
@@ -58,7 +58,7 @@ const addState = async (req, res) => {
         if (error.errors) {
             errors = error.errors.map((item) => ({
                 error: item.message,
-                field: item.parh,
+                field: item.path,
             }));
         }
         return res.status(400).json(
