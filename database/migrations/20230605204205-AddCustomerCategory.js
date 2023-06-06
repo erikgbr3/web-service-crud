@@ -5,18 +5,18 @@ module.exports = {
   async up (queryInterface, Sequelize) {
     return Promise.all([
       queryInterface.addColumn(
-        'Customers',
-        'localityId',
+        'Addresses',
+        'customerId',
         {
           type: Sequelize.DataTypes.INTEGER,
           references: {
-            model: 'Localities',
+            model: 'Customers',
             key: 'id',
           },
           onUpdate: 'CASCADE',
           onDelete: 'SET NULL',
           defaultValue: null,
-          after: "status"
+          after: "cp"
         },
       ),
     ]);
