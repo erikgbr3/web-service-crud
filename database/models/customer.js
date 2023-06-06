@@ -11,7 +11,18 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      
+      models.Customer.belongsTo(models.Locality,
+        {
+          as: 'localities',
+          foreignKey: 'localityId',
+        }
+      );
+      models.Customer.hasOne(models.Address,
+        {
+          as: 'addresses',
+          foreignKey: 'customerId',
+        }
+      );
     }
   }
   Customer.init({
